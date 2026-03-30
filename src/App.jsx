@@ -6,10 +6,11 @@ import ModelForm from './components/ModelForm';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [modelMode, setIsModelMode] = useState('add');
+  const [modelMode, setModelMode] = useState('add');
 
-  const handleisOpen = () => {
-    setIsOpen(!isOpen);
+  const handleOpen = (mode) => {
+    setModelMode(mode);
+    setIsOpen(true);
   }
 
   const handleSubmit = () => {
@@ -23,8 +24,12 @@ function App() {
   return (
     <>
       <NavBar onOpen = {() => handleOpen('add')}/>
-      <TableList />
-      <ModelForm isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <TableList handleOpen={handleOpen}/>
+      <ModelForm 
+        isOpen={isOpen}  onSubmit={handleSubmit}
+        onClose={() => setIsOpen(false)} 
+        mode={modelMode}
+      />
     </>
   )
 }
