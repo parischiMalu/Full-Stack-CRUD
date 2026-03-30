@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import NavBar from './components/Navbar';
-import TableList from './components/Tablelist';
+import NavBar from './components/NavBar';
+import TableList from './components/TableList';
 import ModelForm from './components/ModelForm';
 
 function App() {
